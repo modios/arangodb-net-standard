@@ -52,7 +52,7 @@ namespace ArangoDBNetStandard.CollectionApi
             {
                 uriString += "?" + options.ToQueryString();
             }
-            var content = GetContent(body, true, true);
+            var content = GetContent(body, ApiClientSerializationContentType.GetJwtToken);
             using (var response = await _transport.PostAsync(uriString, content))
             {
                 var stream = await response.Content.ReadAsStreamAsync();
